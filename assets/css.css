@@ -1,0 +1,48 @@
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css');
+
+body{
+    background-image: url('../assets/img/bg.jpg');
+    background-color: rgb(255, 240, 240);
+}
+
+
+h1 {
+    color:rgb(224, 205, 181);
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    -webkit-text-stroke: 1px black;
+}
+
+a:any-link{
+    color: #d0803a;
+}
+
+
+
+.container{
+    background-color: rgba(248, 225, 212, 0.938);
+    width: 100%;
+    border-radius: 4px;
+}
+
+.footer{
+    color: white;
+    background-color: black;
+}
+
+
+
+.p1 {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.porots{
+    display: flex;
+    background-color: rgb(255, 98, 0);
+    color: white;
+    justify-content: center;
+    align-self: center;
+}
