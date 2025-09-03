@@ -103,3 +103,13 @@ a:any-link{
 .contact-form {
     width: 300px;
 }
+
+#mt-3-contacto{ /* Estilo para contenedor de formulario contacto */
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 26, 84, 0.422);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
