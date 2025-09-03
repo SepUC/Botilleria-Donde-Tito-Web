@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!telefono.value.trim()) {
                 mostrarError(telefono, 'El teléfono es requerido');
                 isValid = false;
-            } else if (!/^\+?[0-9\s\-]{8,15}$/.test(telefono.value.trim())) {  // Validación de formato de teléfono
+            } else if (telefono.value.trim().length < 9) {  // Validación de formato de teléfono
                 isValid = false;
                 mostrarError(telefono, 'Formato de teléfono inválido');
             }
