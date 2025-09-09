@@ -25,6 +25,7 @@ a:any-link{
 .logo{
     max-width: 250px;
     height: auto;
+    display: block;
 }
 
 .container{
@@ -112,4 +113,80 @@ a:any-link{
     background-color: rgba(0, 26, 84, 0.422);
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+/* Estilo para la parte del detalle */
+.product-card {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.product-card .card-image {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.product-card .card-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.product-card .card-text {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.product-card .card-title {
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.product-card p {
+    margin: 0;
+    color: #555;
+}
+
+
+@media (max-width: 768px) {
+    .product-card {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .product-card .card-image,
+    .product-card .card-text {
+        width: 90%;
+        height: auto;
+    }
+}
+
+/*correción logo porque me había salido corrido a la izquierda xd*/
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.logo {
+    max-width: 250px;
+    height: auto;
+    display: block;
 }
