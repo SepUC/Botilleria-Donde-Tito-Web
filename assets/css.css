@@ -190,3 +190,20 @@ a:any-link{
     height: auto;
     display: block;
 }
+
+#p-productos{
+    color: white
+}
+
+
+.about{
+    background-color: rgba(65, 105, 225, 0.592);
+}
+
+#row-about{
+    background-color: rgba(125, 158, 255, 0.299);
+    border-radius: 8px;
+    padding: 20px;
+    color:rgb(117, 117, 246)
+
+}
