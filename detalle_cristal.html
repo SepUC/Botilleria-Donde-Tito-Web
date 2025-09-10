@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css.css">
+    <title>Donde Tito</title>
+</head>
+<body>
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img src="assets/img/LOGO_TEMP.png" alt="Logo" class="logo">
+</div>
+
+
+<nav class="navbar">
+    <div class="container" style="background-color: rgb(7, 6, 80);">
+        <ul class="nav justify-content-center">
+            <!-- Sección dropdown para expansión de menú con bootstrap -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #7072e0;">
+                    &#x22EE;
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="#">Vinos</a></li>
+                    <li><a class="dropdown-item" href="#">Cervezas</a></li>
+                    <li><a class="dropdown-item" href="#">Licores</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="pag.html">Hogar</a></li>
+            <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="detalle.html">Productos</a></li> <!-- Productos.html no existe, es placeholder-->
+            <li class="nav-item"><a class="nav-link" href="about.html">Sobre nosotros</a></li> <!-- About.html no existe, es placeholder -->
+        </ul>
+    </div>
+</nav>
+
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="product-card">
+                <div class="card-image">
+                    <img src="https://cdnx.jumpseller.com/dc-central-distribuidora-de-licores/image/23076074/1x-cristal-46-lata-470cc.jpg?1746722758"
+                         alt="Cristal">
+                </div>
+                <div class="card-text">
+                    <h3 class="card-title">Cristal Lata Unidad 350 CC</h3>
+                    <h3 class="card-price">Precio Unidad: $3.600</h3>
+                    <p><strong>Descripción:</strong> Cerveza Cristal Lager 4.2° tradicional</p>
+                    <p><strong></strong></p>
+                    <button class="btn btn-primary">Comprar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Pie de página -->
+<p class="p1">Donde Tito ™</p>
+<footer class="footer">
+    <p>Nombre del equipo &copy; 2025</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
