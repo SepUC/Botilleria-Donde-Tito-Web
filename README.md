@@ -1,6 +1,6 @@
 ## Botillería Donde Tito - Proyecto web
 
-Repositorio para la página web basada en una botillería llamada donde tito.
+Repositorio para la página web basada en una botillería llamada donde tito. Es necesario tener instalado react y node en el sistema para testeo y ejecución.
 
 
 
