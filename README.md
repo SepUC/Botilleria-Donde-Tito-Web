@@ -1,10 +1,10 @@
-## Botillería Donde Tito - Proyecto web
+# Botillería Donde Tito - Proyecto web
 
 Repositorio para la página web basada en una botillería llamada donde tito. Es necesario tener instalado react y node en el sistema para testeo y ejecución.
 
 
 
-# Getting Started with Create React App
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
