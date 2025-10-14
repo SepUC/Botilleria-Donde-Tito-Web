@@ -23,6 +23,10 @@ h2, .App h2 {
     display: flex;
 }
 
+#h2-productos{
+    color: black !important;
+}
+
 h3, .App h3 {
     color: white !important;
 }
