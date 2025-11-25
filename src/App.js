@@ -1,7 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 // Import de componentes
 import Home from './components/Home';
@@ -9,14 +10,34 @@ import Contacto from './components/Contacto';
 import Productos from './components/Productos';
 import About from './components/About';
 import DetalleCristal from './components/DetalleCristal';
+import Login from './components/Login';
 
-function App() {
+// Import de servicios de autenticación
+import { isAuthenticated, getUserData, logoutUser } from './services/AuthApi';
+
+function AppContent() {
+  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+
+  // Verificar si el usuario está autenticado al cargar
+  useEffect(() => {
+    if (isAuthenticated()) {
+      setUser(getUserData());
+    }
+  }, []);
+
+  // Manejar logout
+  const handleLogout = () => {
+    logoutUser();
+    setUser(null);
+    navigate('/');
+  };
+
   return (
-    <Router>
-      <div className="App">
-        {/* Logo Header */}
-        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-          <img src="/assets/img/LOGO_TEMP.png" alt="Logo" className="logo" />
+    <div className="App">
+      {/* Logo Header */}
+      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <img src="/assets/img/LOGO_TEMP.png" alt="Logo" className="logo" />
         </div>
 
         {/* Navigation */}
@@ -47,6 +68,28 @@ function App() {
               <li className="nav-item">
                 <Link className="nav-link" to="/about">Sobre nosotros</Link>
               </li>
+              {!user ? (
+                <li className="nav-item">
+                  <Link className="nav-link" to="/login">Login</Link>
+                </li>
+              ) : (
+                <>
+                  <li className="nav-item">
+                    <span className="nav-link" style={{color: '#9092ff'}}>
+                      👤 {user.name || user.email}
+                    </span>
+                  </li>
+                  <li className="nav-item">
+                    <button 
+                      className="nav-link btn btn-link" 
+                      onClick={handleLogout}
+                      style={{color: '#ff7070', border: 'none', background: 'none'}}
+                    >
+                      Salir
+                    </button>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </nav>
@@ -58,14 +101,22 @@ function App() {
           <Route path="/productos" element={<Productos />} />
           <Route path="/about" element={<About />} />
           <Route path="/detalle-cristal" element={<DetalleCristal />} />
+          <Route path="/login" element={<Login onLoginSuccess={(userData) => setUser(userData)} />} />
         </Routes>
 
-        {/* Footer */}
-        <p className="p1">Donde Tito ™</p>
-        <footer className="footer">
-          <p>Nombre del equipo &copy; 2025</p>
-        </footer>
-      </div>
+      {/* Footer */}
+      <p className="p1">Donde Tito ™</p>
+      <footer className="footer">
+        <p>Nombre del equipo &copy; 2025</p>
+      </footer>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }
