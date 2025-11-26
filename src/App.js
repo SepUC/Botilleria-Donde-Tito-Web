@@ -9,7 +9,7 @@ import Home from './components/Home';
 import Contacto from './components/Contacto';
 import Productos from './components/Productos';
 import About from './components/About';
-import DetalleCristal from './components/DetalleCristal';
+import Detalle from './components/Detalle';
 import Login from './components/Login';
 
 // Import de servicios de autenticación
@@ -100,7 +100,7 @@ function AppContent() {
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/productos" element={<Productos />} />
           <Route path="/about" element={<About />} />
-          <Route path="/detalle-cristal" element={<DetalleCristal />} />
+          <Route path="/producto/:id" element={<Detalle />} />
           <Route path="/login" element={<Login onLoginSuccess={(userData) => setUser(userData)} />} />
         </Routes>
 

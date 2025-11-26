@@ -195,18 +195,6 @@ function Login({ onLoginSuccess }) {
                   </div>
                 </div>
 
-                {/* Remember Me */}
-                <div className="mb-3 form-check">
-                  <input 
-                    type="checkbox" 
-                    className="form-check-input" 
-                    id="rememberMe"
-                  />
-                  <label className="form-check-label" htmlFor="rememberMe" style={{color: '#333'}}>
-                    Recordarme
-                  </label>
-                </div>
-
                 {/* Submit Button */}
                 <div className="d-grid gap-2">
                   <button 
@@ -214,12 +202,12 @@ function Login({ onLoginSuccess }) {
                     className="btn btn-primary btn-lg"
                     disabled={loading}
                     style={{
-                      backgroundColor: '#4f3161',
+                      backgroundColor: '#4f3161b8',
                       borderColor: '#4f3161',
                       transition: 'all 0.3s ease'
                     }}
                     onMouseOver={(e) => !loading && (e.target.style.backgroundColor = '#6d4585')}
-                    onMouseOut={(e) => !loading && (e.target.style.backgroundColor = '#4f3161')}
+                    onMouseOut={(e) => !loading && (e.target.style.backgroundColor = '#4f3161a1')}
                   >
                     {loading ? (
                       <>
@@ -232,37 +220,7 @@ function Login({ onLoginSuccess }) {
                   </button>
                 </div>
               </form>
-
-              {/* Additional Links */}
-              <div className="text-center mt-3">
-                <a href="#" style={{color: '#4f3161', textDecoration: 'none'}}>
-                  ¿Olvidaste tu contraseña?
-                </a>
-              </div>
-              
               <hr className="my-4" />
-              
-              <div className="text-center">
-                <p style={{color: '#666', marginBottom: '10px'}}>¿No tienes una cuenta?</p>
-                <a 
-                  href="#" 
-                  className="btn btn-outline-secondary"
-                  style={{
-                    borderColor: '#4f3161',
-                    color: '#4f3161'
-                  }}
-                  onMouseOver={(e) => {
-                    e.target.style.backgroundColor = '#4f3161';
-                    e.target.style.color = 'white';
-                  }}
-                  onMouseOut={(e) => {
-                    e.target.style.backgroundColor = 'transparent';
-                    e.target.style.color = '#4f3161';
-                  }}
-                >
-                  Crear Cuenta
-                </a>
-              </div>
             </div>
           </div>
         </div>

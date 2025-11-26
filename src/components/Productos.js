@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { getProducts } from '../services/BotiApi';
 
 function Productos() {
@@ -67,7 +68,6 @@ function Productos() {
       <div className="row">
         <div className="col-12">
           <h1>Nuestros Productos</h1>
-          <p className="lead"><strong>Placeholder:</strong> Aquí va la descripción general de los productos...</p>
         </div>
       </div>
 
@@ -80,23 +80,25 @@ function Productos() {
         {groupedProducts.cervezas.length > 0 ? (
           groupedProducts.cervezas.map((product) => (
             <div key={product.id} className="col-md-4 mb-3">
-              <div className="card h-100 clickable-card">
-                <img 
-                  src={product.cover_image?.url || '/assets/img/placeholder.png'} 
-                  className="card-img-top" 
-                  alt={product.name}
-                  style={{height: '200px', objectFit: 'cover'}} 
-                  onError={(e) => { e.target.src = '/assets/img/placeholder.png'; }}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{product.name}</h5>
-                  <p className="card-text">{product.description || 'Sin descripción disponible'}</p>
-                  <p className="text-muted">Precio: ${product.price?.toLocaleString('es-CL') || 'N/A'}</p>
-                  {product.stock !== undefined && (
-                    <p className="text-muted small">Stock: {product.stock}</p>
-                  )}
+              <Link to={`/producto/${product.id}`} className="text-decoration-none">
+                <div className="card h-100 clickable-card">
+                  <img 
+                    src={product.cover_image?.url || '/assets/img/placeholder.png'} 
+                    className="card-img-top" 
+                    alt={product.name}
+                    style={{height: '200px', objectFit: 'cover'}} 
+                    onError={(e) => { e.target.src = '/assets/img/placeholder.png'; }}
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">{product.name}</h5>
+                    <p className="card-text">{product.description || 'Sin descripción disponible'}</p>
+                    <p className="text-muted">Precio: ${product.price?.toLocaleString('es-CL') || 'N/A'}</p>
+                    {product.stock !== undefined && (
+                      <p className="text-muted small">Stock: {product.stock}</p>
+                    )}
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           ))
         ) : (
@@ -115,23 +117,25 @@ function Productos() {
         {groupedProducts.vinos.length > 0 ? (
           groupedProducts.vinos.map((product) => (
             <div key={product.id} className="col-md-4 mb-3">
-              <div className="card h-100 clickable-card">
-                <img 
-                  src={product.cover_image?.url || '/assets/img/placeholder.png'} 
-                  className="card-img-top" 
-                  alt={product.name}
-                  style={{height: '200px', objectFit: 'cover'}} 
-                  onError={(e) => { e.target.src = '/assets/img/placeholder.png'; }}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{product.name}</h5>
-                  <p className="card-text">{product.description || 'Sin descripción disponible'}</p>
-                  <p className="text-muted">Precio: ${product.price?.toLocaleString('es-CL') || 'N/A'}</p>
-                  {product.stock !== undefined && (
-                    <p className="text-muted small">Stock: {product.stock}</p>
-                  )}
+              <Link to={`/producto/${product.id}`} className="text-decoration-none">
+                <div className="card h-100 clickable-card">
+                  <img 
+                    src={product.cover_image?.url || '/assets/img/placeholder.png'} 
+                    className="card-img-top" 
+                    alt={product.name}
+                    style={{height: '200px', objectFit: 'cover'}} 
+                    onError={(e) => { e.target.src = '/assets/img/placeholder.png'; }}
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">{product.name}</h5>
+                    <p className="card-text">{product.description || 'Sin descripción disponible'}</p>
+                    <p className="text-muted">Precio: ${product.price?.toLocaleString('es-CL') || 'N/A'}</p>
+                    {product.stock !== undefined && (
+                      <p className="text-muted small">Stock: {product.stock}</p>
+                    )}
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           ))
         ) : (
@@ -150,23 +154,25 @@ function Productos() {
         {groupedProducts.licores.length > 0 ? (
           groupedProducts.licores.map((product) => (
             <div key={product.id} className="col-md-4 mb-3">
-              <div className="card h-100 clickable-card">
-                <img 
-                  src={product.cover_image?.url || '/assets/img/placeholder.png'} 
-                  className="card-img-top" 
-                  alt={product.name}
-                  style={{height: '200px', objectFit: 'cover'}} 
-                  onError={(e) => { e.target.src = '/assets/img/placeholder.png'; }}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{product.name}</h5>
-                  <p className="card-text">{product.description || 'Sin descripción disponible'}</p>
-                  <p className="text-muted">Precio: ${product.price?.toLocaleString('es-CL') || 'N/A'}</p>
-                  {product.stock !== undefined && (
-                    <p className="text-muted small">Stock: {product.stock}</p>
-                  )}
+              <Link to={`/producto/${product.id}`} className="text-decoration-none">
+                <div className="card h-100 clickable-card">
+                  <img 
+                    src={product.cover_image?.url || '/assets/img/placeholder.png'} 
+                    className="card-img-top" 
+                    alt={product.name}
+                    style={{height: '200px', objectFit: 'cover'}} 
+                    onError={(e) => { e.target.src = '/assets/img/placeholder.png'; }}
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">{product.name}</h5>
+                    <p className="card-text">{product.description || 'Sin descripción disponible'}</p>
+                    <p className="text-muted">Precio: ${product.price?.toLocaleString('es-CL') || 'N/A'}</p>
+                    {product.stock !== undefined && (
+                      <p className="text-muted small">Stock: {product.stock}</p>
+                    )}
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           ))
         ) : (
