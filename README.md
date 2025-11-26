@@ -120,11 +120,11 @@ Response (Error):
 
 ## Características de Seguridad
 
-✅ **Token Storage**: Los tokens se guardan en localStorage (para desarrollo)
-✅ **Error Handling**: Mensajes claros para el usuario
-✅ **Validation**: Validación frontend antes de llamar al API
-✅ **Loading States**: Indicadores visuales durante operaciones asíncronas
-✅ **Session Persistence**: La sesión persiste entre recargas de página
+- **Token Storage**: Los tokens se guardan en localStorage (para desarrollo)
+- **Error Handling**: Mensajes claros para el usuario
+- **Validation**: Validación frontend antes de llamar al API
+- **Loading States**: Indicadores visuales durante operaciones asíncronas
+- **Session Persistence**: La sesión persiste entre recargas de página
 
 ## Estructura de localStorage
 
