@@ -7,7 +7,7 @@ function Home() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Traer los primeros tres productos de BotiApi
+  // Trae los primeros tres productos de BotiApi
   useEffect(() => {
     const fetchTopProducts = async () => {
       try {
@@ -30,12 +30,12 @@ function Home() {
   return (
     <div className="container my-2">
       <div className="row align-items-start">
-        {/* Warning image column */}
+        {/* CColumna de advertencia */}
         <div className="col-md-3 d-flex justify-content-center">
           <img src="/assets/img/advertencia.png" alt="Advertencia" className="img-fluid" />
         </div>
 
-        {/* Product cards column */}
+        {/* Columna de tarjetas de productos */}
         <div className="col-md-9">
           {loading ? (
             <div className="text-center py-5">

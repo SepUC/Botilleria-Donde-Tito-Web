@@ -127,7 +127,7 @@ function Login({ onLoginSuccess }) {
             <div className="card-body p-4">
               <h2 className="text-center mb-4" style={{color: '#4f3161c1 !important'}}>Iniciar Sesión</h2>
               
-              {/* Login Error Alert */}
+              {/* Alerta error login */}
               {loginError && (
                 <div className="alert alert-danger alert-dismissible fade show" role="alert">
                   <strong>Error:</strong> {loginError}
@@ -195,7 +195,7 @@ function Login({ onLoginSuccess }) {
                   </div>
                 </div>
 
-                {/* Submit Button */}
+                {/* Botón de envío */}
                 <div className="d-grid gap-2">
                   <button 
                     type="submit" 

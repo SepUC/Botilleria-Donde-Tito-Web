@@ -1,10 +1,10 @@
 const BASE_URL = "https://x8ki-letl-twmt.n7.xano.io";
 
 /**
- * Login user with email and password
- * @param {string} email - User email
- * @param {string} password - User password
- * @returns {Promise} - Returns user data and auth token
+ * Inicio de sesión con email y password
+ * @param {string} email - Email del usuario
+ * @param {string} password - Contraseña del usuario
+ * @returns {Promise} - Devuelve los datos del usuario y el token de autenticación
  */
 export async function loginUser(email, password) {
   const url = `${BASE_URL}/api:vpx-imHN/auth/login`;
@@ -35,39 +35,39 @@ export async function loginUser(email, password) {
 }
 
 /**
- * Store authentication token in localStorage
- * @param {string} token - Auth token
+ * Almacena el token de autenticación en localStorage
+ * @param {string} token - Token de autenticación
  */
 export function setAuthToken(token) {
   localStorage.setItem('authToken', token);
 }
 
 /**
- * Get authentication token from localStorage
- * @returns {string|null} - Auth token or null
+ * Token de autenticación desde localStorage
+ * @returns {string|null} - Token de autenticación o null
  */
 export function getAuthToken() {
   return localStorage.getItem('authToken');
 }
 
 /**
- * Remove authentication token from localStorage
+ * Quitar token de autenticación de localStorage
  */
 export function removeAuthToken() {
   localStorage.removeItem('authToken');
 }
 
 /**
- * Store user data in localStorage
- * @param {object} user - User data
+ * Almacena los datos del usuario en localStorage
+ * @param {object} user - Datos del usuario
  */
 export function setUserData(user) {
   localStorage.setItem('userData', JSON.stringify(user));
 }
 
 /**
- * Get user data from localStorage
- * @returns {object|null} - User data or null
+ * Usa los datos del usuario desde localStorage
+ * @returns {object|null} - Datos del usuario o null
  */
 export function getUserData() {
   const userData = localStorage.getItem('userData');
@@ -75,14 +75,14 @@ export function getUserData() {
 }
 
 /**
- * Remove user data from localStorage
+ * Quita los datos del usuario de localStorage
  */
 export function removeUserData() {
   localStorage.removeItem('userData');
 }
 
 /**
- * Check if user is authenticated
+ * Revisa si el usuario está auntenticado
  * @returns {boolean}
  */
 export function isAuthenticated() {
@@ -90,7 +90,7 @@ export function isAuthenticated() {
 }
 
 /**
- * Logout user - clear all auth data
+ * Cierra sesión del usuario - limpia todos los datos de autenticación
  */
 export function logoutUser() {
   removeAuthToken();

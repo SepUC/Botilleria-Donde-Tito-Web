@@ -9,7 +9,7 @@ function Productos() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch products from API
+  // Saca los productos (fetch) desde la API
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -28,7 +28,7 @@ function Productos() {
     fetchProducts();
   }, []);
 
-  // Group products by category
+
   const groupedProducts = {
     cervezas: products.filter(p => p.category?.toLowerCase() === 'cerveza' || p.category?.toLowerCase() === 'cervezas'),
     vinos: products.filter(p => p.category?.toLowerCase() === 'vino' || p.category?.toLowerCase() === 'vinos'),
@@ -65,7 +65,7 @@ function Productos() {
     );
   }
 
-  // Determine title based on category filter
+  // Determina el titulo dependiendo de la categoría seleccionada
   const getTitle = () => {
     if (categoryFilter === 'cervezas') return 'Cervezas';
     if (categoryFilter === 'vinos') return 'Vinos';
@@ -73,7 +73,7 @@ function Productos() {
     return 'Nuestros Productos';
   };
 
-  // Filter products to show based on category
+  // Filtra los productos a mostrar según la categoría
   const shouldShowCategory = (category) => {
     if (!categoryFilter) return true;
     return categoryFilter === category;
