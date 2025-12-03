@@ -4,73 +4,148 @@ Repositorio para la página web basada en una botillería llamada donde tito. Es
 
 
 
-## Getting Started with Create React App
+## Inicio proyecto
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Proyecto creado con bootstrap y [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Scripts disponibles
 
-In the project directory, you can run:
+En el directorio del proyecto puedes correr los siguientes scripts.
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Corre la aplicación/página en modo de desarrollo.\
+Se usa [http://localhost:3000](http://localhost:3000) dentro del buscador una vez finalizado.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+La página se recarga automáticamente por cada cambio implementado.\
+Incluirá errores en la consola.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Lanza el corredor de pruebas en el modo interactivo.\
+Más detalles aquí [running tests](https://facebook.github.io/create-react-app/docs/running-tests) para información.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Más Info
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Más info en la [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Y para saber mas de react revisa el [React documentation](https://reactjs.org/).
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Conexión con la API
+Se ha implementado un sistema completo de autenticación conectado a una API de Xano.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Archivos Creados/Modificados
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 1. `src/services/AuthApi.js` (NUEVO)
+Servicio de autenticación con las siguientes funciones en JS:
+- `loginUser(email, password)` - Autenticar usuario
+- `setAuthToken(token)` - Guardar token en localStorage
+- `getAuthToken()` - Obtener token guardado
+- `removeAuthToken()` - Eliminar token
+- `setUserData(user)` - Guardar datos del usuario
+- `getUserData()` - Obtener datos del usuario
+- `removeUserData()` - Eliminar datos del usuario
+- `isAuthenticated()` - Verificar si hay sesión activa
+- `logoutUser()` - Cerrar sesión completa
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 2. `src/components/Login.js` (MODIFICADO)
+Componente de login con:
+- ✅ Validación de email y contraseña
+- ✅ Integración con API de Xano
+- ✅ Manejo de estados de carga
+- ✅ Toggle para mostrar/ocultar contraseña
+- ✅ Redirección automática después del login
+- ✅ Spinner de carga durante autenticación
 
-## Learn More
+### 3. `src/App.js` (MODIFICADO)
+- ✅ Detección automática de sesión activa
+- ✅ Navegación dinámica (Login vs Usuario + Salir)
+- ✅ Muestra nombre o email del usuario logueado
+- ✅ Botón de logout funcional
+- ✅ Actualización del estado global al login/logout
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Endpoint API
+```
+POST https://x8ki-letl-twmt.n7.xano.io/api:vpx-imHN/auth/login
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Body:
+{
+  "email": "usuario@ejemplo.com",
+  "password": "contraseña123"
+}
 
-### Code Splitting
+Response (Éxito):
+{
+  "authToken": "token_string",
+  "id": 123,
+  "email": "usuario@ejemplo.com",
+  "name": "Nombre Usuario",
+  ... otros campos del usuario
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Response (Error):
+{
+  "code": "ERROR_CODE_ACCESS_DENIED",
+  "message": "Invalid Credentials."
+}
+```
 
-### Analyzing the Bundle Size
+## Cómo Probar
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 1. Probar Login
+1. Iniciar la aplicación con `npm start`
+2. Navegar a `/login` o hacer clic en "Login" en la navegación
+3. Ingresar credenciales válidas de tu base de datos Xano (revisar base de datos)
+4. Presionar "Ingresar"
+5. Si es exitoso, serás redirigido a la página principal
+6. En la navegación verás tu nombre/email y un botón "Salir"
 
-### Making a Progressive Web App
+### 2. Verificar Persistencia
+1. Después de hacer login, refresca la página (F5)
+2. El usuario debe seguir autenticado (su nombre aparece en la navegación)
+3. Los datos se guardan en localStorage del navegador
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 3. Probar Logout
+1. Con sesión activa, hacer clic en el botón "Salir"
+2. Serás redirigido a la página principal
+3. La navegación volverá a mostrar "Login"
+4. Los datos se eliminan de localStorage
 
-### Advanced Configuration
+### 4. Validaciones
+- Intentar login con email inválido → muestra error de formato
+- Intentar login con contraseña < 6 caracteres → muestra error
+- Intentar login con credenciales incorrectas → muestra error de la API
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Características de Seguridad
 
-### Deployment
+- **Token Storage**: Los tokens se guardan en localStorage (para desarrollo)
+- **Error Handling**: Mensajes claros para el usuario
+- **Validation**: Validación frontend antes de llamar al API
+- **Loading States**: Indicadores visuales durante operaciones asíncronas
+- **Session Persistence**: La sesión persiste entre recargas de página
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Estructura de localStorage
 
-### `npm run build` fails to minify
+```javascript
+// Después del login:
+localStorage.authToken = "eyJhbGciOiJIUzI1NiIs..."
+localStorage.userData = '{"id":123,"email":"user@example.com","name":"Usuario"}'
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Debugging
+
+Si hay problemas con el login:
+1. Abrir DevTools (F12) → Console
+2. Verificar los logs de errores
+3. Ir a Application → Local Storage → verificar authToken y userData
+4. Network tab → verificar la respuesta del endpoint /auth/login
+
+## Contacto con el Backend
+
+El sistema de login está configurado para trabajar con:
+- **Base URL**: `https://x8ki-letl-twmt.n7.xano.io`
+- **Endpoint**: `/api:vpx-imHN/auth/login`
+- **Method**: POST
+- **Content-Type**: application/json
