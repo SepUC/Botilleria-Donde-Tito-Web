@@ -127,7 +127,7 @@ function Detalle() {
             className="btn btn-primary mt-3"
             disabled={product.stock === 0}
           >
-            {product.stock === 0 ? 'Sin stock' : 'Agregar al carrito'}
+            {product.stock === 0 ? 'Sin stock' : 'Comprar producto'}
           </button>
         </div>
       </div>

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { getProducts } from '../services/BotiApi';
 
 function Productos() {
+  const [searchParams] = useSearchParams();
+  const categoryFilter = searchParams.get('categoria');
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -63,15 +65,31 @@ function Productos() {
     );
   }
 
+  // Determine title based on category filter
+  const getTitle = () => {
+    if (categoryFilter === 'cervezas') return 'Cervezas';
+    if (categoryFilter === 'vinos') return 'Vinos';
+    if (categoryFilter === 'licores') return 'Licores';
+    return 'Nuestros Productos';
+  };
+
+  // Filter products to show based on category
+  const shouldShowCategory = (category) => {
+    if (!categoryFilter) return true;
+    return categoryFilter === category;
+  };
+
   return (
     <div className="container my-4">
       <div className="row">
         <div className="col-12">
-          <h1>Nuestros Productos</h1>
+          <h1>{getTitle()}</h1>
+          {!categoryFilter}
         </div>
       </div>
 
       {/* Sección de Cervezas */}
+      {shouldShowCategory('cervezas') && (
       <div className="row mt-5">
         <div className="col-12">
           <h2>Cervezas</h2>
@@ -107,8 +125,10 @@ function Productos() {
           </div>
         )}
       </div>
+      )}
 
       {/* Sección de Vinos */}
+      {shouldShowCategory('vinos') && (
       <div className="row mt-5">
         <div className="col-12">
           <h2>Vinos</h2>
@@ -144,8 +164,10 @@ function Productos() {
           </div>
         )}
       </div>
+      )}
 
       {/* Sección de Licores */}
+      {shouldShowCategory('licores') && (
       <div className="row mt-5">
         <div className="col-12">
           <h2>Licores</h2>
@@ -181,6 +203,7 @@ function Productos() {
           </div>
         )}
       </div>
+      )}
     </div>
   );
 }

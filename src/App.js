@@ -51,9 +51,9 @@ function AppContent() {
                   &#x22EE;
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <li><a className="dropdown-item" href="#">Vinos</a></li>
-                  <li><a className="dropdown-item" href="#">Cervezas</a></li>
-                  <li><a className="dropdown-item" href="#">Licores</a></li>
+                  <li><Link className="dropdown-item" to="/productos?categoria=vinos">Vinos</Link></li>
+                  <li><Link className="dropdown-item" to="/productos?categoria=cervezas">Cervezas</Link></li>
+                  <li><Link className="dropdown-item" to="/productos?categoria=licores">Licores</Link></li>
                 </ul>
               </li>
               <li className="nav-item">
