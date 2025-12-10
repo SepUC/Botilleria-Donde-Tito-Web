@@ -11,6 +11,7 @@ import Productos from './components/Productos';
 import About from './components/About';
 import Detalle from './components/Detalle';
 import Login from './components/Login';
+import Register from './components/Register';
 
 // Import de servicios de autenticación
 import { isAuthenticated, getUserData, logoutUser } from './services/AuthApi';
@@ -102,6 +103,7 @@ function AppContent() {
           <Route path="/about" element={<About />} />
           <Route path="/producto/:id" element={<Detalle />} />
           <Route path="/login" element={<Login onLoginSuccess={(userData) => setUser(userData)} />} />
+          <Route path="/register" element={<Register onRegisterSuccess={(userData) => setUser(userData)} />} />
         </Routes>
 
       {/* Footer */}
