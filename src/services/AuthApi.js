@@ -35,6 +35,42 @@ export async function loginUser(email, password) {
 }
 
 /**
+ * Registro de nuevo usuario
+ * @param {string} name - Nombre del usuario
+ * @param {string} email - Email del usuario
+ * @param {string} password - Contraseña del usuario
+ * @returns {Promise} - Devuelve los datos del usuario y el token de autenticación
+ */
+export async function registerUser(name, email, password) {
+  const url = `${BASE_URL}/api:vpx-imHN/auth/signup`;
+  
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        password
+      })
+    });
+    
+    const data = await response.json();
+    
+    // Si la respuesta no es OK, lanzar error con el mensaje del servidor
+    if (!response.ok) {
+      throw new Error(data.message || 'Error al registrar usuario');
+    }
+    
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+/**
  * Almacena el token de autenticación en localStorage
  * @param {string} token - Token de autenticación
  */
